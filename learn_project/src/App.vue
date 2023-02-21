@@ -1,9 +1,9 @@
 <template>
     <div class="app">
-        <form action="">
+        <form @submit.prevent>
             <h4>Создание поста</h4>
-            <input v-bind:value="title" @input="inputTitle" class="input" type="text" placeholder="Название">
-            <input v-bind:value="body" class="input" type="text" placeholder="Описание">
+            <input v-bind:value="title" @input="title=$event.target.value" class="input" type="text" placeholder="Название">
+            <input v-bind:value="body"  @input="body=$event.target.value" class="input" type="text" placeholder="Описание">
             <button class="btn" @click="createPost">Создать</button>
         </form>
         <div class="post" v-for="post in posts">
@@ -29,9 +29,16 @@ export default {
     },
     methods: {
         createPost(){
-            
-        }
-    },
+            const newPost = {
+                id: Date.now(),
+                title: this.title,
+                body: this.body,
+            }
+            this.posts.push(newPost);
+            this.title="";
+            this.body="";
+        },
+    }
 }
 </script>
 
