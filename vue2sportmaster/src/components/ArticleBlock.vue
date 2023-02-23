@@ -1,6 +1,7 @@
 <template>
 <li class="article">
     {{ title }}
+    {{ body }}
 </li>
 </template>
 
@@ -12,7 +13,7 @@ export default {
         body:String 
     },
     components:{
-        
+
     }
 
 }
