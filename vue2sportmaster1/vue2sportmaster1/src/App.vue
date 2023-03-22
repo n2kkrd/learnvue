@@ -1,8 +1,6 @@
-
 <template>
   <div id="app">
     <ArticleList title="My Articles"/>
-    
   </div>
 </template>
 

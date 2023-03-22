@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "title": "Lorem Ipsum",
+      "author": "John Doe",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "published": true
+    },
+    {
+      "id": 2,
+      "title": "Dolor Sit Amet",
+      "author": "Jane Doe",
+      "body": "Dolor sit amet, consectetur adipiscing elit.",
+      "published": false
+    },
+    {
+      "id": 3,
+      "title": "Consectetur Adipiscing Elit",
+      "author": "John Smith",
+      "body": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "published": true
+    }
+  ]
+  

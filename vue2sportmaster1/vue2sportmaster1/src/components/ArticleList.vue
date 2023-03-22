@@ -1,16 +1,19 @@
 <template>
     <div>
       <h2>{{ title }}</h2>
-      <router-link v-for="article in articles" :key="article.id" :to="'/article/' + article.id" tag="div">
+      <div class="article-list">
         <article-block
-          :title="article.title"
-          :content="article.content"
-          :author="article.author"
-          :date="article.date"
-          :published.sync="article.published"
-          v-bind:class="{ 'unpublished': !article.published }"
+            v-for="article in articles"
+            :key="article.id"
+            :title="article.title"
+            :content="article.content"
+            :author="article.author"
+            :date="article.date"
+            :published.sync="article.published"
+            v-bind:class="{ 'unpublished': !article.published }"
         ></article-block>
-      </router-link>
+
+      </div>
       <ArticleForm @add-article="addArticle" />
     </div>
   </template>

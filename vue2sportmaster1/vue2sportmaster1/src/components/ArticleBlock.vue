@@ -1,6 +1,6 @@
 <template>
     <div class="article-block" :class="{ 'article-block--unpublished': !isPublished }">
-      <div>{{ title }}</div>
+      <h3>{{ title }}</h3>
       <div class="article-content">
         <p v-if="content">{{ content }}</p>
         <p v-if="author">{{ author | capitalize }}</p>
