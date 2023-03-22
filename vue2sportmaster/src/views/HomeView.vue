@@ -1,20 +1,12 @@
 <template>
   <div>
-    <h1>Articles</h1>
-    <ul>
-      <li v-for="(article, index) in articles" :key="index">
-        <router-link :to="{ name: 'Article', params: { id: article.id } }">{{ article.title }}</router-link>
-      </li>
-    </ul>
+    <h1>Главная страница</h1>
+    <router-link to="/articles">Статьи</router-link>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
-  computed: {
-    ...mapState(['articles'])
-  }
+  name: 'HomeView'
 }
 </script>

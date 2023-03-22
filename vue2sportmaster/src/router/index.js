@@ -1,30 +1,31 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import HomeView from '@/views/HomeView'
-import AboutView from '@/views/AboutView'
-import ArticleList from '@/components/ArticleList'
+import VueRouter from 'vue-router'
 
 
+Vue.use(VueRouter)
 
-Vue.use(Router)
-
-export default new Router({
-  mode: 'history',
-  routes: [
+ const routes = [
     {
       path: '/',
-      name: 'Home',
-      component: HomeView
+      name: 'articlelist',
+      component: () => import('../components/ArticleList.vue')
     },
     {
       path: '/about',
       name: 'About',
-      component: AboutView
+      component: () => import('../components/AboutUs.vue')
     },
     {
-      path: '/articles',
-      name: 'ArticleList',
-      component: ArticleList
+      path: '/articleform',
+      name: 'AddArticle',
+      component: () => import('../components/ArticleForm.vue')
     },
   ]
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
 })
+
+export default router

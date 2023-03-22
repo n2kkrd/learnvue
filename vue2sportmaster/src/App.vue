@@ -1,21 +1,13 @@
 
 <template>
   <div id="app">
-    <ArticleList title="My Articles"/>
-    
+    <router-link to="/about">About</router-link> |
+    <router-link to="/">Articles</router-link> |
+    <router-link to="/articleform">Form</router-link>
+    <router-view></router-view>
   </div>
 </template>
 
-<script>
-import ArticleList from './components/ArticleList.vue'
-
-export default {
-  name: 'App',
-  components: {
-    ArticleList
-  }
-}
-</script>
 
 <style>
 #app {
