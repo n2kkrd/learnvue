@@ -18,43 +18,27 @@
 <script>
 import ArticleForm from './ArticleForm.vue'
 import ArticleBlock from './ArticleBlock.vue'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default {
-name: 'ArticleList',
-components: {
-  ArticleBlock,
-  ArticleForm
-},
-data() {
-  return {
-    articles: []
-  };
-},
-methods: {
-  async loadArticles() {
-    try {
-      const response = await fetch('/articles.json');
-      this.articles = await response.json();
-    } catch (error) {
-      console.error(error);
-    }
+  name: 'ArticleList',
+  components: {
+    ArticleBlock,
+    ArticleForm
   },
-
-addArticle(article) {
-  let newArticle = {
-    id: this.articles.length+1,
-    ...article
+  computed: {
+    ...mapState(['articles']),
+    ...mapGetters(['getArticleById']),
+    articleCount() {
+      return this.articles.length;
+    },
+  },
+  methods: {
+    ...mapActions(['loadArticles', 'addArticle', 'togglePublished'])
+  },
+  beforeCreate() {
+    this.$store.dispatch('fetchArticles');
   }
-  this.articles.push(newArticle);
-  console.log(article.title);
-},
-},
-togglePublished(article) {
-    article.published = !article.published;
-},
-beforeMount() {
-  this.loadArticles();
-}
 }
 </script>
 

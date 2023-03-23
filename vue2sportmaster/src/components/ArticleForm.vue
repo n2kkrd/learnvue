@@ -1,40 +1,42 @@
 <template>
   <div>
     <h2>Добавить статью</h2>
-    <form style="width: 50%; margin: 10px auto;">
+    <form style="width: 50%; margin: 10px auto;" @submit.prevent="addArticle">
       <div><input type="text" placeholder="Title" v-model="article.title" /></div>
       <div><input input type="text" placeholder="Author" v-model="article.author" /></div>
-      <div><textarea v-model="article.body" placeholder="Body"></textarea></div>
+      <div><textarea v-model="article.content" placeholder="Body"></textarea></div>
       <div><label><input type="checkbox" v-model="article.published">Published</label></div>
-      <div><input type="submit" value="Add" v-on:click.prevent="addArticle(articles, article)" /></div>
+      <div><input type="submit" value="Add" /></div>
     </form>
   </div>
 </template>
 
 <script>
-import { addArticle } from '../addArticle.js'
-
 export default {
   name: 'ArticleForm',
   data() {
     return {
       article: {
         title: '',
-        body: '',
+        content: '',
         author: '',
         published: false
       }
     }
   },
-  props: {
-    articles: Array
-  },
   methods: {
-    addArticle
+    addArticle() {
+      this.$store.commit('addArticle', this.article)
+      this.article = {
+        title: '',
+        content: '',
+        author: '',
+        published: false
+      }
+    }
   }
 }
 </script>
-
 <style scoped>
 h3 {
   margin: 40px 0 0;

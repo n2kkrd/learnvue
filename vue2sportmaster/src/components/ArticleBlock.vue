@@ -6,7 +6,7 @@
         <p v-if="author">{{ author | capitalize }}</p>
         <p v-if="date">{{ date }}</p>
       </div>
-      <button @click="togglePublished">{{ isPublished ? 'Unpublish' : 'Publish' }}</button>
+      <button @click.prevent="togglePublished">{{ isPublished ? 'Unpublish' : 'Publish' }}</button>
     </div>
   </template>
   
