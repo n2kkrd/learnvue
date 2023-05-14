@@ -36,15 +36,22 @@ export default {
   },
   async created() {
     await this.loadData();
+    
   },
   methods: {
     async loadData() {
-      this.pieData = await this.$store.dispatch('grade/getGrades');
-      this.barData = await this.$store.dispatch('grade/getCourses');
-      this.createPieChart();
-      this.createBarChart();
+        await this.$store. dispatch ("grade/getCourses");
+        await this.$store.dispatch ("grade/getGrades");
+        this.pieData = this.$store.state.grade.grades;
+        this.barData = this.$store.state.grade.courses; 
+        console.log(this.pieData)
+        this.createPieChart();
+        this.createBarChart();
+        
+        
     },
     createPieChart() {
+      
       const data = {
         labels: this.pieData.map((grade) => grade.studentName),
         datasets: [
