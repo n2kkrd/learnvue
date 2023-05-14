@@ -1,5 +1,17 @@
 <template>
     <div>
-        <h1>Second view</h1>
+      <student-chart></student-chart>
     </div>
-</template>
+  </template>
+  
+  <script>
+  import StudentChart from '@/components/grade/StudentChart.vue'
+  
+  export default {
+    name: 'SecondView',
+    components: {
+      StudentChart
+    }
+  }
+  </script>
+  

@@ -98,7 +98,7 @@ export default {
 
         initData() {
             this.$store.dispatch("grade/initData");
-        }
+        },
     },
 
     computed: {

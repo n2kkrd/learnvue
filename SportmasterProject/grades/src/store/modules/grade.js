@@ -63,10 +63,12 @@ export default {
     actions: {
         async getCourses(context) {
             context.commit('setCourses', await api.course());
+            
         },
 
         async getGrades(context) {
             context.commit('setGrades', await api.grade());
+            
         },
 
         async postGrade(context, grade) {

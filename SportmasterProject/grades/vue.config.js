@@ -2,7 +2,14 @@ module.exports = {
     transpileDependencies: [
         'vuetify'
     ],
-    
+    chainWebpack: config => {
+        config.module
+          .rule('chartjs')
+          .test(/chart\.js$/)
+          .use('babel-loader')
+          .loader('babel-loader')
+          .end()
+      },
     devServer: {
         proxy: {
             '/api': {
