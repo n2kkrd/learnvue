@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Chart from 'chart.js'
+import Chart from 'chart.js/auto'
 
 export default {
 name: 'StudentChart',
@@ -64,14 +64,6 @@ computed: {
         {
           data: chartData.map((grade) => grade.count),
           backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56',
-            '#8DFF00',
-            '#FF5733',
-            '#C41E3D',
-          ],
-          hoverBackgroundColor: [
             '#FF6384',
             '#36A2EB',
             '#FFCE56',
